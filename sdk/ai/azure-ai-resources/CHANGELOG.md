@@ -1,6 +1,6 @@
 # Release History
 
-## 1.0.0b5 (Unreleased)
+## 1.0.0b6 (Unreleased)
 
 ### Features Added
 
@@ -9,6 +9,12 @@
 ### Bugs Fixed
 
 ### Other Changes
+
+## 1.0.0b5 (2024-02-01)
+
+### Other Changes
+
+- Duplicate cleanup
 
 ## 1.0.0b4 (2024-02-01)
 
