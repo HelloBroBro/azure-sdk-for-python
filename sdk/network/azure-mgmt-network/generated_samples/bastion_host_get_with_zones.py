@@ -7,14 +7,14 @@
 # --------------------------------------------------------------------------
 
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.servicefabric import ServiceFabricManagementClient
+from azure.mgmt.network import NetworkManagementClient
 
 """
 # PREREQUISITES
     pip install azure-identity
-    pip install azure-mgmt-servicefabric
+    pip install azure-mgmt-network
 # USAGE
-    python list_operations.py
+    python bastion_host_get_with_zones.py
 
     Before run the sample, please set the values of the client ID, tenant ID and client secret
     of the AAD application as environment variables: AZURE_CLIENT_ID, AZURE_TENANT_ID,
@@ -24,16 +24,18 @@ from azure.mgmt.servicefabric import ServiceFabricManagementClient
 
 
 def main():
-    client = ServiceFabricManagementClient(
+    client = NetworkManagementClient(
         credential=DefaultAzureCredential(),
-        subscription_id="SUBSCRIPTION_ID",
+        subscription_id="subid",
     )
 
-    response = client.operations.list()
-    for item in response:
-        print(item)
+    response = client.bastion_hosts.get(
+        resource_group_name="rg1",
+        bastion_host_name="bastionhosttenant'",
+    )
+    print(response)
 
 
-# x-ms-original-file: specification/servicefabric/resource-manager/Microsoft.ServiceFabric/stable/2021-06-01/examples/ListOperations.json
+# x-ms-original-file: specification/network/resource-manager/Microsoft.Network/stable/2023-09-01/examples/BastionHostGetWithZones.json
 if __name__ == "__main__":
     main()
