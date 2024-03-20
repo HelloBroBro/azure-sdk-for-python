@@ -6,17 +6,15 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-import isodate
-
 from azure.identity import DefaultAzureCredential
-from azure.mgmt.apimanagement import ApiManagementClient
+from azure.mgmt.servicelinker import ServiceLinkerManagementClient
 
 """
 # PREREQUISITES
     pip install azure-identity
-    pip install azure-mgmt-apimanagement
+    pip install azure-mgmt-servicelinker
 # USAGE
-    python api_management_get_reports_by_time.py
+    python get_dapr_configurations.py
 
     Before run the sample, please set the values of the client ID, tenant ID and client secret
     of the AAD application as environment variables: AZURE_CLIENT_ID, AZURE_TENANT_ID,
@@ -26,21 +24,17 @@ from azure.mgmt.apimanagement import ApiManagementClient
 
 
 def main():
-    client = ApiManagementClient(
+    client = ServiceLinkerManagementClient(
         credential=DefaultAzureCredential(),
-        subscription_id="subid",
     )
 
-    response = client.reports.list_by_time(
-        resource_group_name="rg1",
-        service_name="apimService1",
-        filter="timestamp ge datetime'2017-06-01T00:00:00' and timestamp le datetime'2017-06-04T00:00:00'",
-        interval=isodate.parse_duration("PT15M"),
+    response = client.linkers.list_dapr_configurations(
+        resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
     )
     for item in response:
         print(item)
 
 
-# x-ms-original-file: specification/apimanagement/resource-manager/Microsoft.ApiManagement/stable/2022-08-01/examples/ApiManagementGetReportsByTime.json
+# x-ms-original-file: specification/servicelinker/resource-manager/Microsoft.ServiceLinker/preview/2023-04-01-preview/examples/GetDaprConfigurations.json
 if __name__ == "__main__":
     main()
