@@ -1,6 +1,6 @@
 # Release History
 
-## 0.19.0 (2023-06-04)
+## 0.19.0 (2024-06-04)
 
 ### Features Added
 
@@ -50,10 +50,6 @@
   - Model LinkedService parameter ServiceNowV2LinkedService update properties
   - Model Pipeline parameter ExecuteDataFlowActivity update new properties computeType
   - Model Pipeline parameter ScriptActivityScriptBlock update properties type
-
-### Bugs Fixed
-
-### Other Changes
 
 ## 0.18.0 (2023-10-30)
 
