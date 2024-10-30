@@ -1,5 +1,17 @@
 # Release History
 
+## 1.0.0b6 (Unreleased)
+
+### Features Added
+
+### Breaking Changes
+
+### Bugs Fixed
+
+### Other Changes
+- Refined error messages for serviced-based evaluators and simulators.
+- Introduced environment variable `AI_EVALS_DISABLE_EXPERIMENTAL_WARNING` to disable the warning message for experimental features.
+
 ## 1.0.0b5 (2024-10-28)
 
 ### Features Added
