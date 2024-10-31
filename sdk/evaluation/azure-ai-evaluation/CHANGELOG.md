@@ -5,8 +5,10 @@
 ### Features Added
 
 ### Breaking Changes
+- The `parallel` parameter has been removed from composite evaluators: `QAEvaluator`, `ContentSafetyChatEvaluator`, and `ContentSafetyMultimodalEvaluator`. To control evaluator parallelism, you can now use the `_parallel` keyword argument, though please note that this private parameter may change in the future.
 
 ### Bugs Fixed
+- Output of adversarial simulators are of type `JsonLineList` and the helper function `to_eval_qr_json_lines` now outputs context from both user and assistant turns along with `category` if it exists in the conversation
 
 ### Other Changes
 - Refined error messages for serviced-based evaluators and simulators.
@@ -69,7 +71,7 @@ outputs = asyncio.run(custom_simulator(
   - `RetrievalEvaluator`
 - The following evaluators will now have a new key in their result output including LLM reasoning behind the score. The new key will follow the pattern "<metric_name>_reason". The reasoning is the result of a more detailed prompt template being used to generate the LLM response. Note that this requires the maximum number of tokens used to run these evaluators to be increased.
     
-    | Evaluator | New Token Limit |
+    | Evaluator | New `max_token` for Generation |
     | --- | --- |
     | `CoherenceEvaluator` | 800 |
     | `RelevanceEvaluator` | 800 |
